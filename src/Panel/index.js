@@ -1,3 +1,4 @@
-import StudentTable from './StudentTable';
+import StudentTable from './views/StudentTable';
+import reducer from './reducer';
 
-export default StudentTable;
+export {StudentTable,reducer};

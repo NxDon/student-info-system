@@ -2,6 +2,7 @@ import React from 'react';
 
 export default ({info}) => {
     return(
+        <div>
         <tr>
             <td>{info.name}</td>
             <td>{info.id}</td>
@@ -10,5 +11,8 @@ export default ({info}) => {
             <td>{info.english}</td>
             <td>{info.programming}</td>
         </tr>
+            <span>x</span>
+        </div>
+
     )
 }

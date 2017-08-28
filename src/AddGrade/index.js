@@ -1,3 +1,4 @@
-import Adder from './Adder';
+import Adder from './views/Adder';
+import reducer from './reducer';
 
-export default Adder;
+export {Adder, reducer};
