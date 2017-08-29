@@ -1,40 +1,14 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, compose,combineReducers} from 'redux';
 import {reducer as PanelReducer} from './Panel';
-
+import persistState from 'redux-localstorage';
 
 // let reducer = combineReducers({
 //     PanelReducer,AddReducer
 // })
+const enhancer = compose(persistState(null,{key:"studentInfo"}));//syn with localStorage
+let reducer = combineReducers({
+    studentInfo:PanelReducer
+})
 
 
-var mockData = [{
-    name: 'Duan',
-    id: 0,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},{
-    name: 'Duan',
-    id: 1,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},{
-    name: 'Duan',
-    id: 2,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},{
-    name: 'Duan',
-    id: 3,
-    math: 92,
-    chinese: 93,
-    english: 82,
-    programming: 13
-}];
-let initValue =mockData//todo :从localStorage获取
-export const store = createStore(PanelReducer,initValue);
+export const store = createStore(reducer,enhancer);

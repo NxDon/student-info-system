@@ -34,7 +34,7 @@ const StudentTable = ({studentList, onRemove}) => {
 
 const mapState = (state) => {
     return {
-        studentList: state
+        studentList: state.studentInfo
     };
 };
 
