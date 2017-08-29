@@ -1,8 +1,7 @@
 import React from 'react';
 
-export default ({info}) => {
+export default ({info,onRemove}) => {
     return(
-        <div>
         <tr>
             <td>{info.name}</td>
             <td>{info.id}</td>
@@ -10,9 +9,7 @@ export default ({info}) => {
             <td>{info.chinese}</td>
             <td>{info.english}</td>
             <td>{info.programming}</td>
+            <td onClick={onRemove}>x</td>
         </tr>
-            <span>x</span>
-        </div>
-
     )
 }

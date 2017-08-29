@@ -1,45 +1,32 @@
 import React from 'react';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
-import GradeTable from './Panel';
-import AddGrade from './AddGrade';
+import {StudentTable, Adder} from './Panel';
+import {Menu} from './Menu';
+import {Provider} from 'react-redux';
+import {store} from './Store';
 
-var mockData = [{
-    name: 'Duan',
-    id: 1,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},{
-    name: 'Duan',
-    id: 1,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},{
-    name: 'Duan',
-    id: 1,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},{
-    name: 'Duan',
-    id: 1,
-    math: 99,
-    chinese: 99,
-    english: 88,
-    programming: 123
-},];
+const App = ({children}) => {
+    return (
+        <div>
+            <Menu/>
+            <div>{children}</div>
+        </div>
+    );
+};
+
 
 export default class extends React.Component {
     render() {
         return (
-            <div>
-                <AddGrade/>
-                <GradeTable StudentList={mockData}/>
-            </div>
+            <Provider store={store}>
+                <Router history={hashHistory}>
+                    <Route path="/" component={App}>
+                        <Route path="add" component={Adder}/>
+                        <Route path="show" component={StudentTable}/>
+                    </Route>
+                </Router>
+            </Provider>
         )
     }
 }
