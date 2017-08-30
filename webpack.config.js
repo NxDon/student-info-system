@@ -12,7 +12,7 @@ module.exports = {
             loader: 'babel-loader',
             query: {
                 presets: ['react', 'es2015'],
-
+                plugins: [["import", { "libraryName": "antd", "style": "css" }]]
             },
         },
             {
